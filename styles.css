@@ -1,0 +1,47 @@
+/* reset base */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* target box sizing */
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+/* create media query to adjust font-sizing */
+@media (max-width: 75em) {
+    html {
+        font-size: 60%;
+    }
+}
+@media (max-width: 61.25em) {
+    html {
+        font-size: 58%;
+    }
+}
+@media (max-width: 28.75em) {
+    html {
+        font-size: 55%;
+    }
+}
+
+body {
+    font-family: Helvetica, Arial, sans-serif, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    /* color: white; */
+}
+
+h1, h2 {
+    text-align: center;
+    font-weight: 700;
+    font-family: Helvetica, Arial, sans-serif;
+    color: darkred;
+}
