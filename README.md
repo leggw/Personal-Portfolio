@@ -17,7 +17,7 @@ Welcome to my personal portfolio repository! This project showcases the skills I
 
 ## Features
 - **Responsive Design:** The portfolio is designed to be fully responsive, ensuring a seamless experience across various devices.
-- **Project Showcase:** Highlight key projects you've worked on with details, images, and links.
+- **Project Showcase:** Highlight key projects I've worked on with details, images, and links.
 - **Contact Information:** Provide a way for visitors to get in touch with me.
 
 ## Contributing
