@@ -1,7 +1,9 @@
 :root {
-    --main-background: lavenderblush;
-    --head-text: darkred;
-    --highlight: seagreen;
+    --main-background: #053da3;
+    --light-background: #1f71d7;
+    --lighter-background: #42a6ff;
+    --main-text: #00f2fa;
+    --highlight: #ffff8c;
 }
 
 /* reset base */
@@ -50,7 +52,7 @@ h1, h2 {
     font-size: 8rem;
     font-weight: 700;
     font-family: "Lato", Helvetica, Arial, sans-serif;
-    color: var(--head-text);
+    color: var(--main-text);
 }
 
 ul {
@@ -59,7 +61,7 @@ ul {
 
 a {
     text-decoration: none;
-    color: var(--head-text);
+    color: var(--main-text);
 }
 
 img {
@@ -100,7 +102,7 @@ img {
 
 .nav-list a:hover {
     background: var(--highlight);
-    color: white;
+    color: var(--main-background);
 }
 
 /* welcome section edits */
@@ -111,7 +113,7 @@ img {
     align-items: center;
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(royalblue, skyblue, powderblue);
+    background-image: linear-gradient(var(--main-background), var(--light-background));
 }
 
 .welcome-section p {
@@ -125,7 +127,7 @@ img {
 .projects {
     text-align: center;
     padding: 10rem 2rem;
-    background: linear-gradient(lightsteelblue, floralwhite, azure) ;
+    background: linear-gradient(var(--light-background), var(--lighter-background)) ;
 }
 .projects img {
     border-radius: 2% 2% 0 0;
@@ -154,14 +156,14 @@ img {
 }
 
 .project {
-    background: var(--main-gray);
+    background: var(--main-background);
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
     border-radius: 2%;
 }
 
 .project:hover {
-    background-color: var(--head-text);
-    color: white;
+    background-color: #00ffff;
+    color: var(--main-background);
 }
 
 .project-image {
@@ -181,13 +183,13 @@ img {
     border-radius: 2px;
     display: inline-block;
     background-color: var(--highlight);
-    color: whitesmoke;
+    color: var(--main-background);
     transition: transform 0.3s ease-out;
 }
 
 .see-all:hover {
-    background: var(--head-text);
-    color: white;
+    background: var(--main-background);
+    color: var(--highlight);
     transform: translateX(1rem);
 }
 
@@ -201,7 +203,7 @@ img {
     width: 100%;
     height: 80vh;
     padding: 0 2rem;
-    background-image: linear-gradient(45deg, floralwhite, lightgreen, mediumseagreen, seagreen);
+    background-color: var(--main-background);
     font-size: 2.5rem;
 }
 
@@ -238,8 +240,8 @@ img {
     padding: 1rem 2rem;
     border-radius: 1%;
     font-size: 2.4rem;
-    text-shadow: 2px 2px 1px #1f1f1f;
-    color: white;
+    text-shadow: 2px 2px 1px black;
+    color: var(--main-text);
     transition: transform 0.3s ease-out
 }
 
