@@ -137,7 +137,7 @@ img {
 .projects-header {
     max-width: 600px;
     margin: 0 auto 5rem auto;
-    border-bottom: 0.2rem solid var(--head-text);
+    border-bottom: 0.5rem solid var(--main-text);
 }
 
 @media (max-width: 28.75em) {
