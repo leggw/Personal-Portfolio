@@ -78,8 +78,13 @@ img {
     top: 0;
     left: 0;
     width: 100%;
-    background: var(--main-background);
+    background: var(--main-text);
+    z-index: 1000;
 }
+
+/* .navbar a {
+    color: var(--main-background);
+} */
 
 .nav-list {
     display: flex;
@@ -98,6 +103,7 @@ img {
     display: block;
     font-size: 3rem;
     padding: 1.5rem;
+    color: var(--main-background);
 }
 
 .nav-list a:hover {
@@ -127,8 +133,9 @@ img {
 .projects {
     text-align: center;
     padding: 10rem 2rem;
-    background: linear-gradient(var(--light-background), var(--lighter-background)) ;
+    background: linear-gradient(var(--light-background), var(--lighter-background));
 }
+
 .projects img {
     border-radius: 2% 2% 0 0;
     top: -2px;
@@ -159,11 +166,13 @@ img {
     background: var(--main-background);
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
     border-radius: 2%;
+    transition: transform 0.3s ease-out;
 }
 
 .project:hover {
     background-color: #00ffff;
     color: var(--main-background);
+    transform: scale(1.025);
 }
 
 .project-image {
@@ -192,6 +201,92 @@ img {
     color: var(--highlight);
     transform: translateX(1rem);
 }
+
+/* photos section */
+
+.photos {
+    text-align: center;
+    padding: 10rem 2rem;
+    background: linear-gradient(var(--lighter-background), var(--main-background));
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+}
+
+.photos-header {
+    max-width: 600px;
+    margin: 0 auto 5rem auto;
+}
+
+.photos-header h2 {
+    border-bottom: 0.5rem solid var(--main-text);
+}
+
+.photos-header p {
+    font-size: 3rem;
+}
+
+ @media (max-width: 28.75em) {
+    .photos-header h2 {
+      font-size: 5rem;
+    }
+    .photos-header p {
+      font-size: 2rem;
+    }
+} 
+
+.photos-example {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; 
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+.photos-example img {
+    height: 30rem;
+    width: auto;
+    margin: 3rem;
+    border-radius: 0.5rem;
+    box-shadow: 0px 0px 10px 0px var(--main-text);
+    transition: transform 0.3s ease-out;
+}
+
+.photos-example img:hover {
+    transform: scale(1.025);
+}
+
+.photos-example a {
+    align-items: center;
+}
+
+@media (max-width: 28.75em) {
+    .photos-example img {
+      width: 90%;
+      height: auto;
+      margin: 1rem;
+    }
+} 
+
+.photo-link {
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 2px;
+    display: inline-block;
+    background-color: var(--main-text);
+    color: var(--main-background);
+    transition: transform 0.3s ease-out;
+}
+
+.photo-link:hover {
+    background: var(--highlight);
+    color: var(--main-background);
+    transform: translateX(1rem);
+}
+
 
 /* contact section */
 .contact {
