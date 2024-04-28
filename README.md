@@ -9,7 +9,7 @@ Welcome to my personal portfolio repository! This project showcases the skills I
 - [Contributing](#contributing)
 
 ## Demo
-[Live Demo](https://actnicer.github.io/Personal-Portfolio/)
+[Live Demo](https://leggw.github.io/Personal-Portfolio/)
 
 ## Technologies Used
 - HTML5
