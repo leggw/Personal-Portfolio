@@ -73,9 +73,12 @@ img {
 
 .navbar {
     overflow: hidden;
-    /* background: var(--main-text); */
-    position: fixed;
+    background: var(--main-text);
+    position: relative;
+    display: flex;
+    flex-direction: row;
     width: 100%;
+    height: 15rem;
 }
 
 .navbar #myLinks {
