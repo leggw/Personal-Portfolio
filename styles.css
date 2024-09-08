@@ -72,43 +72,49 @@ img {
 /* nav bar edits */
 
 .navbar {
-    display: flex;
-    justify-content: center;
+    overflow: hidden;
+    /* background: var(--main-text); */
     position: fixed;
-    top: 0;
-    left: 0;
     width: 100%;
+}
+
+.navbar #myLinks {
+    display: none;
+    transition: max-height 0.3s ease-in-out;
     background: var(--main-text);
-    z-index: 1000;
+    width: 45rem; 
+    position: fixed; 
+    right: 0; 
+    top: 7rem; 
 }
 
-/* .navbar a {
+.navbar a {
     color: var(--main-background);
-} */
-
-.nav-list {
-    display: flex;
-}
-
-@media (min-width: 600px) {
-    .navbar {
-        justify-content: flex-end;
-    }
-    .nav-list {
-        margin-right: 4rem;
-    }
-}
-
-.nav-list a {
-    display: block;
+    padding: 1.5rem 2rem;
+    text-decoration: none;
     font-size: 3rem;
-    padding: 1.5rem;
+    display: block;
+}
+
+.navbar a.icon {
+    background: var(--main-text);
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    /* border: 0.5rem solid #000; */
+}
+
+.navbar a:hover {
+    background-color: var(--highlight);
     color: var(--main-background);
 }
 
-.nav-list a:hover {
-    background: var(--highlight);
-    color: var(--main-background);
+
+@media (max-width: 850px) {
+    .navbar #myLinks {
+        width: 100%;
+    }
 }
 
 /* welcome section edits */

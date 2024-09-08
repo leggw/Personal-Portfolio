@@ -5,24 +5,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Will Legg - Personal Portfolio</title>
         <link rel="stylesheet" href="./styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Noto Sans' rel='stylesheet'>
     </head>
     <body>
         <!--NAV section-->
-        <nav id="navbar" class="navbar">
-            <ul class="nav-list">
-                <li>
-                    <a href="#welcome-section">About</a>
-                </li>
-                <li>
-                    <a href="#projects">Projects</a>
-                </li>
-                <li>
-                    <a href="#contact">Contact</a>
-                </li>
-            </ul>
-        </nav>
+        <div class="navbar">
+            <a href="#home" class="active">Legg Portfolio</a>
+            <!-- Navigation links (hidden by default) -->
+            <div id="myLinks">
+                <a href="#welcome-section" onclick="hamburgerFunction()">About</a>
+                <a href="#projects" onclick="hamburgerFunction()">Projects</a>
+                <a href="#photos" onclick="hamburgerFunction()">Photo Archive</a>
+                <a href="#contact" onclick="hamburgerFunction()">Contact</a>
+            </div>
+            <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
+            <a href="javascript:void(0);" class="icon" onclick="hamburgerFunction()">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
 
         <!--welcome section-->
         <section id="welcome-section" class="welcome-section">
@@ -115,5 +117,6 @@
 
         <!--footer section-->
         <footer></footer>
+        <script src="script.js"></script>
     </body>
 </html>
