@@ -72,6 +72,41 @@ img {
 /* nav bar edits */
 
 .navbar {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 12rem;
+    background: var(--main-background);
+    background: var(--main-text);
+    z-index: 1000;
+}
+
+.navbar .left-nav {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .right-nav {
+    display: flex;
+    /* align-items: center; */
+}
+
+.nav-list {
+    display: flex;
+    /* height: 100%; */
+}
+
+.nameplate {
+    height: 100%;
+    width: auto;
+    padding: 1rem;
+    margin-top: -0.5rem;
+}
+
+/* .navbar {
     overflow: hidden;
     background: var(--main-text);
     position: relative;
@@ -79,9 +114,9 @@ img {
     flex-direction: row;
     width: 100%;
     height: 15rem;
-}
+} */
 
-.navbar #myLinks {
+/* .navbar #myLinks {
     display: none;
     transition: max-height 0.3s ease-in-out;
     background: var(--main-text);
@@ -89,9 +124,9 @@ img {
     position: fixed; 
     right: 0; 
     top: 7rem; 
-}
+} */
 
-.navbar a {
+/* .navbar a {
     color: var(--main-background);
     padding: 1.5rem 2rem;
     text-decoration: none;
@@ -105,18 +140,98 @@ img {
     position: absolute;
     right: 0;
     top: 0;
-    /* border: 0.5rem solid #000; */
-}
+    border: 0.5rem solid #000;
+} */
 
-.navbar a:hover {
-    background-color: var(--highlight);
+/* .nav-list a {
+    display: block;
+    font-size: 3rem;
+    padding: 1.5rem;
     color: var(--main-background);
+} */
+
+.nav-list li a {
+    font-size: 3rem;
+    position: relative;
+    display: inline-block;
+    padding: 0 1.5rem; 
+    color: var(--main-background);
+    transition: color 0.3s ease; /* Optional: smooth color transition */
 }
 
+.nav-list li a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px; /* Adjust the thickness of the underline */
+    bottom: 0;
+    left: 0;
+    background-color: var(--highlight); /* The color of the underline */
+    transition: width 0.4s ease-out; /* Controls the speed of the underline animation */
+}
+
+.nav-list li a:hover::after {
+    width: 100%; /* Expands the underline to full width */
+}
+
+.nav-list li a:hover {
+    color: var(--highlight); /* Optional: change text color on hover */
+}
+
+.topnav {
+    display: none;
+}
 
 @media (max-width: 850px) {
-    .navbar #myLinks {
+    .navbar {
+        display: none;
+    }
+
+    .topnav {
+        display: block;
+        background-color: #333;
+        position: fixed;
+        overflow: hidden;
         width: 100%;
+    }
+
+    .topnav .nameplate {
+        height: 2rem;
+    }
+      
+      /* Hide the links inside the navigation menu (except for logo/home) */
+    .topnav #myLinks {
+        display: none;
+    }
+      
+      /* Style navigation menu links */
+    .topnav a {
+        color: white;
+        text-decoration: none;
+        padding: 2rem;
+        font-size: 2rem;
+        display: block;
+    }
+      
+      /* Style the hamburger menu */
+    .topnav a.icon {
+        background: black;
+        display: block;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+      
+      /* Add a grey background color on mouse-over */
+    .topnav a:hover {
+        background-color: #ddd;
+        color: black;
+    }
+      
+      /* Style the active link (or home/logo) */
+    .active {
+        background-color: var(--main-text);
+        color: var(--main-background);
     }
 }
 

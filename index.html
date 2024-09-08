@@ -12,7 +12,29 @@
     <body>
         <!--NAV section-->
         <div class="navbar">
-            <a href="#home" class="active"><img class="nameplate" src="Pics/nameplate.png" alt="portfolio nameplate png"></a>
+            <div class="left-nav"><img class="nameplate" src="Pics/nameplate.png" alt="portfolio nameplate png"></div>
+            <div class="right-nav">
+                <ul class="nav-list">
+                    <li>
+                        <a href="#welcome-section">About</a>
+                    </li>
+                    <li>
+                        <a href="#projects">Projects</a>
+                    </li>
+                    <li>
+                        <a href="#photos">Photos</a>
+                    </li>
+                    <li>
+                        <a href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- <img class="nameplate" src="Pics/nameplate.png" alt="portfolio nameplate png"> -->
+        <!-- Top navigator tool for mobile w/ hamburger menu -->
+        <div class="topnav">
+            <a href="#welcome-section" class="active">Will Legg Portfolio</a>
             <!-- Navigation links (hidden by default) -->
             <div id="myLinks">
                 <a href="#welcome-section" onclick="hamburgerFunction()">About</a>
@@ -22,9 +44,9 @@
             </div>
             <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
             <a href="javascript:void(0);" class="icon" onclick="hamburgerFunction()">
-                <i class="fa fa-bars"></i>
+              <i class="fa fa-bars"></i>
             </a>
-        </div>
+          </div>
 
         <!--welcome section-->
         <section id="welcome-section" class="welcome-section">
