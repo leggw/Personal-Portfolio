@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agricultural Drone Controller | Will Legg</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Domine:wght@400;700&amp;display=swap">
+</head>
+<body class="project-detail">
+    <main>
+        <nav aria-label="Project navigation"><a href="../index.html#projects">← Back to projects</a></nav>
+        <header>
+            <p class="detail-course">ECE 230 · Verilog · Vivado</p>
+            <h1>Agricultural Drone Controller</h1>
+            <p>Simulated a 13-state controller with single-bit command error correction.</p>
+        </header>
+        <section><h2>Command decoding</h2><p>I built a Hamming (7,4) decoder that uses parity checks to correct a single-bit error in an incoming command. The corrected command feeds the finite-state machine.</p></section><section><h2>State sequencing</h2><p>The 13-state controller handles power, movement and multi-cycle operations. Separate output logic updates the propeller power, action signals and seven-segment display.</p></section><section><h2>Simulation</h2><p>I used a Verilog testbench to exercise the state machine and inspected the Vivado waveform to verify the order and timing of state changes and outputs.</p></section>
+        <figure>
+                <a href="../Pics/drone-fsm-waveform.png"><img src="../Pics/drone-fsm-waveform.png" alt="Vivado waveform showing the controller’s state and outputs as test commands are applied."></a>
+                <figcaption>Vivado waveform showing the controller’s state and outputs as test commands are applied.</figcaption>
+            </figure>
+        
+        <section>
+            <h2>State behavior</h2>
+            <p>The controller starts in Off and waits for a power-on command. In Idle it checks the decoded power bit and dispatches commands using the three low bits. A direction or capture command occupies one clock cycle before returning to Idle.</p>
+            <p>Commands 6 and 7 run three-clock sequences. The seed output stays active in Seed0 through Seed2. The Pest sequence asserts its action output in the first and third states and clears it in the middle state. Each sequence returns to Idle after its final state.</p>
+        </section>
+        <figure>
+            <a href="../Pics/drone-state-diagram.png"><img src="../Pics/drone-state-diagram.png" alt="Transitions between Off, Idle, one-clock actions and the two three-clock sequences." loading="lazy"></a>
+            <figcaption>State transitions from the ECE 230 design worksheet. Each unlabeled transition between operation states takes one clock edge. The controller waits in Off or Idle until a command changes its state.</figcaption>
+        </figure>
+        <details class="project-code"><summary>View Verilog state-transition logic</summary><pre><code>always @ (posedge clk)
+    begin
+    case(curst)
+        // Off state - check for power on command
+          Off:
+              begin
+              if(hc_data[4] == 1 &amp;&amp; OnOff == 0)
+                  curst &lt;= Idle;      // Power on transition
+              end
+          // Include all other state transitions
+          Idle:
+              begin
+              if (!hc_data[4]) curst &lt;= Off;
+              else case (hc_data[2:0])
+                  1: curst &lt;= Forward;
+                  2: curst &lt;= Right;
+                  3: curst &lt;= Backward;
+                  4: curst &lt;= Left;
+                  5: curst &lt;= Capture;
+                  6: curst &lt;= Seed0;
+                  7: curst &lt;= Pest0;
+              endcase
+          end
+          Forward, Right, Backward, Left, Capture:
+              curst &lt;= Idle;
+
+          Seed0: curst &lt;= Seed1;
+          Seed1: curst &lt;= Seed2;
+          Seed2: curst &lt;= Idle;
+
+         Pest0: curst &lt;= Pest1;
+         Pest1: curst &lt;= Pest2;
+         Pest2: curst &lt;= Idle;
+     endcase
+     end</code></pre></details>
+    </main>
+</body>
+</html>

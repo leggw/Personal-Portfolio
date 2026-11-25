@@ -143,7 +143,12 @@ img {
         display: none;
     }
 
+    section {
+        scroll-margin-top: 7rem;
+    }
+
     .topnav {
+        z-index: 1000;
         display: block;
         background-color: #333;
         position: fixed;
@@ -170,8 +175,14 @@ img {
     }
       
       /* Style the hamburger menu */
-    .topnav a.icon {
+    .topnav button.icon {
         background: black;
+        color: white;
+        border: 0;
+        padding: 2rem;
+        font: inherit;
+        font-size: 2rem;
+        cursor: pointer;
         display: block;
         position: absolute;
         right: 0;
@@ -376,7 +387,7 @@ img {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
     grid-gap: 3rem;
     width: 100%;
     max-width: 1300px;
@@ -397,7 +408,6 @@ img {
 }
 
 .project-image {
-    height: calc(100%-6rem);
     width: 100%;
     object-fit: cover;
 }
@@ -517,7 +527,7 @@ img {
     align-items: center;
     text-align: center;
     width: 100%;
-    height: 80vh;
+    min-height: 34rem;
     padding: 0 2rem;
     background-color: var(--main-background);
     font-size: 2.5rem;
@@ -569,4 +579,142 @@ img {
     margin: 0 0.5rem;
     height: 2.4rem;
     width: auto;
+}
+
+
+h1, h2, h3, .project-title, .section__title {
+    font-family: Domine, Georgia, serif;
+}
+
+.projects h2,
+.photos-header h2,
+.contact-header h2 {
+    font-size: clamp(3.6rem, 8vw, 7rem);
+}
+
+.social-logo {
+    flex: 0 0 2.4rem;
+    width: 2.4rem;
+}
+
+.project-tile {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    text-align: left;
+    padding-bottom: 1.8rem;
+}
+
+.project-tile .project-image {
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+
+.project-tile .project-image-contained {
+    object-fit: contain;
+    background-color: #142538;
+}
+
+.project-tile .project-title {
+    padding: 1.6rem 1.6rem 0.6rem;
+    line-height: 1.25;
+}
+
+.tile-tag,
+.tile-summary {
+    padding: 0 1.6rem;
+    line-height: 1.5;
+}
+
+.tile-tag {
+    margin-top: 1.5rem;
+    font-size: 1.35rem;
+}
+
+.tile-tag + .project-title {
+    padding-top: 0.55rem;
+}
+
+.tile-summary {
+    color: #eef7ff;
+    font-size: 1.55rem;
+}
+
+.project-tile:hover .tile-summary {
+    color: inherit;
+}
+
+.project-tile:focus-visible {
+    outline: 3px solid var(--highlight);
+    outline-offset: 4px;
+}
+
+.project-detail {
+    min-height: 100vh;
+    background: #062457;
+    color: #eef7ff;
+    font-size: 1.8rem;
+    line-height: 1.65;
+}
+
+.project-detail main {
+    max-width: 94rem;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+}
+
+.project-detail main > * + * {
+    margin-top: 2.6rem;
+}
+
+.project-detail h1,
+.project-detail h2 {
+    margin-bottom: 0.55em;
+    text-align: left;
+    line-height: 1.2;
+}
+
+.project-detail h1 {
+    font-size: clamp(3.2rem, 7vw, 5rem);
+}
+
+.project-detail h2 {
+    font-size: 2.4rem;
+}
+
+.detail-course,
+.project-detail figcaption {
+    color: #c8d9ed;
+    font-size: 1.5rem;
+}
+
+.project-detail img {
+    max-height: 66rem;
+    object-fit: contain;
+    background: #101c30;
+    border-radius: 0.5rem;
+}
+
+.project-detail figcaption {
+    margin-top: 0.8rem;
+}
+
+.project-code {
+    border: 1px solid #42638d;
+    border-radius: 0.5rem;
+    background: #101c30;
+}
+
+.project-code summary {
+    padding: 1rem 1.4rem;
+    color: #9ee9ff;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.project-code pre {
+    overflow-x: auto;
+    padding: 0 1.4rem 1.4rem;
+    font-size: 1.4rem;
+    line-height: 1.55;
 }

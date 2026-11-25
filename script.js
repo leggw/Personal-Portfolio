@@ -1,8 +1,8 @@
 function hamburgerFunction() {
-    var x = document.getElementById("myLinks");
-    if (x.style.display === "block") {
-      x.style.display = "none";
-    } else {
-      x.style.display = "block";
-    }
-} 
+    const links = document.getElementById("myLinks");
+    const toggle = document.querySelector(".topnav button");
+    const expanded = toggle.getAttribute("aria-expanded") === "true";
+
+    links.style.display = expanded ? "none" : "block";
+    toggle.setAttribute("aria-expanded", String(!expanded));
+}

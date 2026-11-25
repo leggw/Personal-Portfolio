@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>8-Bit CMOS Barrel Shifter | Will Legg</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Domine:wght@400;700&amp;display=swap">
+</head>
+<body class="project-detail">
+    <main>
+        <nav aria-label="Project navigation"><a href="../index.html#projects">← Back to projects</a></nav>
+        <header>
+            <p class="detail-course">ECE 410 · Cadence Virtuoso</p>
+            <h1>8-Bit CMOS Barrel Shifter</h1>
+            <p>Designed and verified the shifter block for a team datapath.</p>
+        </header>
+        <section><h2>Circuit design</h2><p>I designed the shifter for our team’s 8-bit datapath. Staged multiplexer rows form a bidirectional rotation core, and output masking clears vacated bits for logical shifts.</p></section><section><h2>Layout and verification</h2><p>I created the layout in Cadence Virtuoso and checked it against its schematic with LVS. I simulated the rotation core and checked one- and two-bit logical shifts with the masking circuitry in place. The shifter block passed LVS.</p></section>
+        <figure>
+                <a href="../Pics/barrel-shifter-layout.png"><img src="../Pics/barrel-shifter-layout.png" alt="Full shifter layout, including the multiplexer rows and output masking logic."></a>
+                <figcaption>Full shifter layout, including the multiplexer rows and output masking logic.</figcaption>
+            </figure><figure>
+                <a href="../Pics/barrel-shifter-schematic.png"><img src="../Pics/barrel-shifter-schematic.png" alt="Top-level schematic showing the shifter stages and masking block."></a>
+                <figcaption>Top-level schematic showing the shifter stages and masking block.</figcaption>
+            </figure><figure>
+                <a href="../Pics/barrel-shifter-simulation.png"><img src="../Pics/barrel-shifter-simulation.png" alt="Cadence simulation used to inspect one- and two-bit logical shifts."></a>
+                <figcaption>Cadence simulation used to inspect one- and two-bit logical shifts.</figcaption>
+            </figure>
+        
+        <section>
+            <h2>Team datapath integration</h2>
+            <p>Our Spartan-8b design connects a two-read-port, one-write-port SRAM register file, an 8-bit ALU and the barrel shifter. The register file supplies operands, the ALU performs arithmetic and logic, and the shifter handles bit movement.</p>
+            <p>The team poster reports that the complete layout passed LVS. The individual blocks achieved their expected functionality during testing. Full datapath functionality remained incomplete at the end of the project.</p>
+        </section>
+        <figure>
+            <a href="../Pics/team-datapath-layout.png"><img src="../Pics/team-datapath-layout.png" alt="Cadence layout of the complete Spartan-8b datapath." loading="lazy"></a>
+            <figcaption>Full datapath layout from the team poster, with the SRAM register file, ALU and shifter placed and wired together.</figcaption>
+        </figure>
+        <figure>
+            <a href="../Pics/team-datapath-schematic.png"><img src="../Pics/team-datapath-schematic.png" alt="Top-level schematic of the Spartan-8b datapath." loading="lazy"></a>
+            <figcaption>Top-level schematic showing the connections between the register file, ALU and shifter.</figcaption>
+        </figure>
+        <figure>
+            <a href="../Pics/team-datapath-lvs.png"><img src="../Pics/team-datapath-lvs.png" alt="LVS report stating “The net-lists match.”" loading="lazy"></a>
+            <figcaption>The team poster’s LVS result reports matching layout and schematic netlists.</figcaption>
+        </figure>
+
+    </main>
+</body>
+</html>

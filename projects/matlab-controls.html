@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MATLAB Controller Comparison | Will Legg</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Domine:wght@400;700&amp;display=swap">
+</head>
+<body class="project-detail">
+    <main>
+        <nav aria-label="Project navigation"><a href="../index.html#projects">← Back to projects</a></nav>
+        <header>
+            <p class="detail-course">ECE 313 · MATLAB · Control Systems</p>
+            <h1>MATLAB Controller Comparison</h1>
+            <p>Compared proportional and PD controllers using simulated step responses.</p>
+        </header>
+        <section><h2>System model</h2><p>I modeled the plant 1/[s(s + 1)] with unity feedback and compared proportional control with a proportional-derivative design.</p></section><section><h2>Response comparison</h2><p>I used step plots and stepinfo to compare settling time and overshoot. The PD design targeted a shorter settling time. The plot shows the simulated response of both designs to the same unit-step input.</p></section>
+        <figure>
+                <a href="../Pics/matlab-step-response.png"><img src="../Pics/matlab-step-response.png" alt="Step responses reproduced from the transfer functions in the MATLAB exercise. The shaded band marks ±2% of steady state."></a>
+                <figcaption>Step responses reproduced from the transfer functions in the MATLAB exercise. The shaded band marks ±2% of steady state.</figcaption>
+            </figure>
+        
+        <details class="project-code"><summary>View MATLAB code</summary><pre><code>% q3
+
+s = tf(&#x27;s&#x27;);
+
+% (a) original system @ 5% OS
+zeta = 0.690; wn = 1/(2*zeta); K = wn^2;
+G = K/(s*(s+1)); T1 = feedback(G,1); stepinfo(T1)
+
+% (b) PD design to halve Ts
+z = 2.12; Kc = 0.99;
+C = Kc*(s+z);
+T2 = feedback(C/(s*(s+1)),1);
+stepinfo(T2)
+
+figure; step(T1, T2); legend(&#x27;K-only (Ts ~ 8s)&#x27;,&#x27;PD (Ts ~ 4s)&#x27;); grid on</code></pre></details>
+    </main>
+</body>
+</html>

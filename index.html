@@ -5,9 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Will Legg - Personal Portfolio</title>
         <link rel="stylesheet" href="./styles.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
         <link href='https://fonts.googleapis.com/css?family=Noto Sans' rel='stylesheet'>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Domine:wght@400;700&amp;display=swap">
     </head>
     <body>
         <!--NAV section-->
@@ -42,9 +42,7 @@
                 <a href="#contact" onclick="hamburgerFunction()">Contact</a>
             </div>
             <!-- "Hamburger menu" / "Bar icon" to toggle the navigation links -->
-            <a href="javascript:void(0);" class="icon" onclick="hamburgerFunction()">
-              <i class="fa fa-bars"></i>
-            </a>
+            <button type="button" class="icon" aria-label="Toggle navigation" aria-controls="myLinks" aria-expanded="false" onclick="hamburgerFunction()">☰</button>
         </div>
 
         <!--welcome section-->
@@ -126,37 +124,68 @@
               
                     </div>
                   </div>
-                  
-              </div>
+                </div>
+            </div>
         </section>
 
         <!--projects section-->
         <section id="projects" class="projects">
             <h2 class="projects-header">Projects</h2>
+
             <div class="projects-grid">
-                <a href="https://github.com/leggw/Temperature-humidity-sensor" target="_blank" class="project project-tile">
-                    <img class="project-image" src="Pics/temp-humid.jpg" alt="temperature humidity sensor arduino project">
-                    <p class="project-title">Arduino Temperature/Humidity Sensor</p>
+                <a href="projects/drone-controller.html" class="project project-tile">
+                    <img class="project-image project-image-contained" src="Pics/drone-fsm-waveform.png" alt="" loading="lazy">
+                    <p class="tile-tag">ECE 230 · Verilog · Vivado</p>
+                    <h3 class="project-title">Agricultural Drone Controller</h3>
+                    <p class="tile-summary">Simulated a 13-state controller with single-bit command error correction.</p>
                 </a>
-                <!-- <a href="https://leggw.github.io/Sudoku/" target="_blank" class="project project-tile">
-                    <img class="project-image" src="Pics/sudokuPic.png" alt="Sudoku game project">
-                    <p class="project-title">Sudoku Game</p>
-                </a> -->
-                <a href="https://github.com/leggw/thermal-camera" target="_blank" class="project project-tile">
-                    <img class="project-image" src="Pics/amg8833wiringsq.jpg" alt="thermal camera arduino project">
-                    <p class="project-title">Arduino Thermal Camera</p>
+                <a href="projects/barrel-shifter.html" class="project project-tile">
+                    <img class="project-image project-image-contained" src="Pics/barrel-shifter-layout.png" alt="" loading="lazy">
+                    <p class="tile-tag">ECE 410 · Cadence Virtuoso</p>
+                    <h3 class="project-title">8-Bit CMOS Barrel Shifter</h3>
+                    <p class="tile-summary">Designed and verified the shifter block for a team datapath.</p>
                 </a>
-                <a href="https://leggw.github.io/Penguin/" target="_blank" class="project project-tile">
-                    <img class="project-image" src="Pics/penguinpreview.jpg" alt="penguin project image">
-                    <p class="project-title">Happy Penguin Animation</p>
+                <a href="projects/rgb-led-control.html" class="project project-tile">
+                    <img class="project-image project-image-contained" src="Pics/rgb-led-control.png" alt="" loading="lazy">
+                    <p class="tile-tag">ECE 331 · Embedded C · KL25Z</p>
+                    <h3 class="project-title">RGB LED Control</h3>
+                    <p class="tile-summary">Combined timer interrupts, analog input and PWM to control an RGB LED.</p>
                 </a>
-                <a href="roman-numeral/roman-numeral.html" target="_blank" class="project project-tile">
-                    <img class="project-image" src="Pics/roman-num.png" alt="roman numeral converter">
-                    <p class="project-title">Roman Numeral Converter</p>
+                <a href="projects/matlab-controls.html" class="project project-tile">
+                    <img class="project-image project-image-contained" src="Pics/matlab-step-response.png" alt="" loading="lazy">
+                    <p class="tile-tag">ECE 313 · MATLAB · Control Systems</p>
+                    <h3 class="project-title">MATLAB Controller Comparison</h3>
+                    <p class="tile-summary">Compared proportional and PD controllers using simulated step responses.</p>
                 </a>
-                <a href="palindrome-checker/palindrome.html" target="_blank" class="project project-tile">
-                    <img class="project-image" src="Pics/palindrome.png" alt="Palindrome checker web app">
-                    <p class="project-title">Palindrome Checker</p>
+                <a href="https://github.com/leggw/Temperature-humidity-sensor" class="project project-tile">
+                    <img class="project-image" src="Pics/temp-humid.jpg" alt="" loading="lazy">
+                    <p class="tile-tag">Arduino · Environmental Sensing</p>
+                    <h3 class="project-title">Arduino Temperature and Humidity Sensor</h3>
+                    <p class="tile-summary">Displays relative humidity and temperature on a character LCD.</p>
+                </a>
+                <a href="https://github.com/leggw/thermal-camera" class="project project-tile">
+                    <img class="project-image" src="Pics/amg8833wiringsq.jpg" alt="" loading="lazy">
+                    <p class="tile-tag">Arduino · AMG8833</p>
+                    <h3 class="project-title">Arduino Thermal Camera</h3>
+                    <p class="tile-summary">Connected an infrared array to an Arduino-compatible board.</p>
+                </a>
+                <a href="roman-numeral/roman-numeral.html" class="project project-tile">
+                    <img class="project-image" src="Pics/roman-num.png" alt="" loading="lazy">
+
+                    <h3 class="project-title">Roman Numeral Converter</h3>
+                    <p class="tile-summary">Converts numbers to Roman numerals.</p>
+                </a>
+                <a href="palindrome-checker/palindrome.html" class="project project-tile">
+                    <img class="project-image" src="Pics/palindrome.png" alt="" loading="lazy">
+
+                    <h3 class="project-title">Palindrome Checker</h3>
+                    <p class="tile-summary">Checks whether text reads the same in either direction.</p>
+                </a>
+                <a href="https://leggw.github.io/Penguin/" class="project project-tile">
+                    <img class="project-image" src="Pics/penguinpreview.jpg" alt="" loading="lazy">
+
+                    <h3 class="project-title">Happy Penguin Animation</h3>
+                    <p class="tile-summary">A penguin drawn and animated with CSS.</p>
                 </a>
             </div>
             <a id="profile-link" href="https://github.com/leggw" class="see-all" target="_blank">
@@ -168,14 +197,14 @@
         <section id="photos" class="photos">
             <div class="photos-header">
                 <h2>Photo Archive</h2>
-                <p>Click the images or button to visit an archive of my photos</p>
+                <p>Selected photographs from my archive</p>
             </div>
             <div class="photos-example">
-                <a href="https://williamlegg.com"><img src="Pics/oversights.jpg" target="_blank"></a>
-                <a href="https://williamlegg.com"><img src="Pics/wind.jpg" target="_blank"></a>
-                <a href="https://williamlegg.com"><img src="Pics/bw1-2.jpg" target="_blank"></a>
+                <a href="https://www.wlegg.com/"><img src="Pics/oversights.jpg" alt="Oversights" loading="lazy"></a>
+                <a href="https://www.wlegg.com/"><img src="Pics/wind.jpg" alt="Wind" loading="lazy"></a>
+                <a href="https://www.wlegg.com/"><img src="Pics/bw1-2.jpg" alt="Black-and-white photograph" loading="lazy"></a>
             </div>
-            <a id="photo-link" href="https://williamlegg.com" class="photo-link" target="_blank">
+            <a id="photo-link" href="https://www.wlegg.com/" class="photo-link" target="_blank">
                 See Photo Archive &gt;
             </a>
         </section>
@@ -183,32 +212,35 @@
         <!--contact section-->
         <section id="contact" class="contact">
             <div class="contact-header">
-                <h2>Contact me at the links below</h2>
-                <p>I hope to hear from you soon!</p>
+                <h2>Contact</h2>
             </div>
             <div class="contact-links">
-                <a href="https://www.linkedin.com/in/will-legg/" target="_blank" class="link">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/480px-LinkedIn_logo_initials.png" 
-                    alt="linkedin logo" 
-                    class="social-logo">
-                    <p>LinkedIn</p>
+                <a href="https://www.linkedin.com/in/will-legg/" class="link">
+                    <svg viewBox="0 0 24 24" class="social-logo" aria-hidden="true" fill="currentColor">
+                        <path d="M4 3h16a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1zm2 7v8h3v-8zm1.5-4A1.5 1.5 0 1 0 7.5 9a1.5 1.5 0 0 0 0-3zM11 10v8h3v-4c0-2 2-2 2 0v4h3v-5c0-3-3-4-5-2v-1z"/>
+                    </svg>
+                    LinkedIn
                 </a>
-                <a href="https://github.com/leggw" target="_blank" class="link">
-                    <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" 
-                    alt="github logo" 
-                    class="social-logo"> 
-                    <p>GitHub</p>
+                <a href="https://github.com/leggw" class="link">
+                    <svg viewBox="0 0 24 24" class="social-logo" aria-hidden="true" fill="currentColor">
+                        <path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.86c-2.78.6-3.37-1.18-3.37-1.18-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.64-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.03a9.58 9.58 0 0 1 5 0c1.91-1.3 2.75-1.03 2.75-1.03.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85V21c0 .26.18.58.69.48A10 10 0 0 0 12 2z"/>
+                    </svg>
+                    GitHub
                 </a>
                 <a href="mailto:williamleggiv@gmail.com" class="link">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/2560px-Gmail_icon_%282020%29.svg.png" 
-                    alt="gmail logo"
-                    class="social-logo"> 
-                    <p>Email</p>
+                    <svg viewBox="0 0 24 24" class="social-logo" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="5" width="20" height="14" rx="2"/>
+                        <path d="m3 7 9 7 9-7"/>
+                    </svg>
+                    Email
                 </a>
-                <a href="https://www.instagram.com/wlpic?igsh=dXNpOW4wOXIkeDE4&utm_source=gr" class="link">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/600px-Instagram_icon.png" 
-                    alt="IG logo" 
-                    class="social-logo"> Instagram
+                <a href="https://www.instagram.com/wlpic/" class="link">
+                    <svg viewBox="0 0 24 24" class="social-logo" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="5"/>
+                        <circle cx="12" cy="12" r="4"/>
+                        <circle cx="17.5" cy="6.5" r="1" stroke="none" fill="currentColor"/>
+                    </svg>
+                    Instagram
                 </a>
             </div>
         </section>

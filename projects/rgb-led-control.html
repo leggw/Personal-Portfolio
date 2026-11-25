@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RGB LED Control | Will Legg</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Domine:wght@400;700&amp;display=swap">
+</head>
+<body class="project-detail">
+    <main>
+        <nav aria-label="Project navigation"><a href="../index.html#projects">← Back to projects</a></nav>
+        <header>
+            <p class="detail-course">ECE 331 · Embedded C · KL25Z</p>
+            <h1>RGB LED Control</h1>
+            <p>Combined timer interrupts, analog input and PWM to control an RGB LED.</p>
+        </header>
+        <section><h2>Color sequencing</h2><p>A timer interrupt advances a six-state color sequence. Each state sets a different mix of red, green and blue through three PWM channels.</p></section><section><h2>Brightness control</h2><p>The KL25Z reads the potentiometer through its ADC. I scaled each PWM duty cycle by that reading so the same knob dims each color in the sequence.</p></section>
+        <figure>
+                <a href="../Pics/rgb-led-control.png"><img src="../Pics/rgb-led-control.png" alt="A block diagram of how the timer and potentiometer inputs drive the LED outputs."></a>
+                <figcaption>A block diagram of how the timer and potentiometer inputs drive the LED outputs.</figcaption>
+            </figure>
+        
+    </main>
+</body>
+</html>
