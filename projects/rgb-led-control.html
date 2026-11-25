@@ -15,7 +15,48 @@
             <h1>RGB LED Control</h1>
             <p>Combined timer interrupts, analog input and PWM to control an RGB LED.</p>
         </header>
-        <section><h2>Color sequencing</h2><p>A timer interrupt advances a six-state color sequence. Each state sets a different mix of red, green and blue through three PWM channels.</p></section><section><h2>Brightness control</h2><p>The KL25Z reads the potentiometer through its ADC. I scaled each PWM duty cycle by that reading so the same knob dims each color in the sequence.</p></section>
+        <section>
+            <h2>Timer-driven color sequence</h2>
+            <p>
+                I programmed a KL25Z microcontroller to cycle an RGB LED through
+                red, yellow, green, cyan, blue, and magenta. A timer interrupt
+                advances the state machine. Each state sets a different mix of
+                red, green, and blue using three PWM channels.
+            </p>
+        </section>
+
+        <section>
+            <h2>Brightness control with an ADC</h2>
+            <p>
+                A potentiometer controls brightness across the entire sequence.
+                I used the 8-bit ADC reading to scale each channel's PWM compare
+                value. At a reading of 255, each channel keeps its requested
+                level. At 0, each compare value is zero. In between, the channels
+                scale together so the selected color dims as a whole. In Timer.c, 
+                the timer interrupt advances the color sequence, and the RGB helper 
+                functions scale each channel’s requested level using the latest 
+                potentiometer reading, then write the result directly to the 
+                timer’s PWM compare registers
+            </p>
+        </section>
+
+        <details class="project-code">
+            <summary>View Embedded C from Timer.c</summary>
+            <pre><code>void redLed(unsigned int percentage)
+        {
+            TPM2_C0V = (percentage * ADC0_RA) / 255;
+        }
+
+        void greenLed(unsigned int percentage)
+        {
+            TPM2_C1V = (percentage * ADC0_RA) / 255;
+        }
+
+        void blueLed(unsigned int percentage)
+        {
+            TPM0_C1V = (percentage * ADC0_RA) / 255;
+        }</code></pre>
+        </details>
         <figure>
                 <a href="../Pics/rgb-led-control.png"><img src="../Pics/rgb-led-control.png" alt="A block diagram of how the timer and potentiometer inputs drive the LED outputs."></a>
                 <figcaption>A block diagram of how the timer and potentiometer inputs drive the LED outputs.</figcaption>
