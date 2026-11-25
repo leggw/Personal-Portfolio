@@ -51,7 +51,7 @@ h1, h2 {
     text-align: center;
     font-size: 8rem;
     font-weight: 700;
-    font-family: "Lato", Helvetica, Arial, sans-serif;
+    /* font-family: "Lato", Helvetica, Arial, sans-serif; */
     color: var(--main-text);
 }
 
@@ -582,7 +582,12 @@ img {
 }
 
 
-h1, h2, h3, .project-title, .section__title {
+h1, h2, h3,
+.project-title,
+.section__title,
+.header .full-name,
+.nav-list li a,
+.topnav a {
     font-family: Domine, Georgia, serif;
 }
 
